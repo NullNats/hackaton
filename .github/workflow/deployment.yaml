@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hackaton
+  labels:
+    app: hackaton
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hackaton
+  template:
+    metadata:
+      labels:
+        app: hackaton
+    spec:
+      containers:
+        - name: hackaton
+          image: 590184142724.dkr.ecr.sa-east-1.amazonaws.com/hackaton
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
