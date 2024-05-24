@@ -60,11 +60,7 @@ jobs:
       id: login-ecr-eua
       uses: aws-actions/amazon-ecr-login@v1
  #faz o update da configuração do cluster e deploya ela no EKS
-    - name: Build, tag, and push docker image to Amazon ECR
-      env:
-        REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        REPOSITORY: hackaton
-        IMAGE_TAG: 1.1      
+    
     - name: Update kube config
       run: aws eks update-kubeconfig --name hackaton
     
