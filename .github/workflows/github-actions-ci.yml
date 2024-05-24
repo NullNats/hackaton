@@ -33,15 +33,7 @@ jobs:
 
 #O fluxo é sequencial, então primeiro pegamos a imagem e depois buildamos ela 
 	#Na pratica então, primeiro logamos em são Paulo e depois logamos na gringa     
-#builda a imagem do docker e faz a imagem pro ECR
-    - name: Build, tag, and push docker image to Amazon ECR
-      env:
-        REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        REPOSITORY: hackaton
-        IMAGE_TAG: 1.1
-      run: |
-        docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
-        docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+
  #builda a imagem do docker - isso tá em SP
     - name: Build, tag, and push docker image to Amazon ECR
       env:
