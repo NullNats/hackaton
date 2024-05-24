@@ -11,12 +11,13 @@ const ENV = 'DEV';
 // Route handlers
 fastify.get('/', async (request, reply) => {
   const msg = 'Quem diria que a gente finalmente conseguiu ver alguma coisa acontecer depois desse perrengue todo !';
-  return getPage(msg);
+    return reply.type('text/html').send(getPage(msg));
+  //return getPage(msg);
 });
 
 fastify.get('/test', async (request, reply) => {
   const msg = 'Hello from /test Node!';
-  return getPage(msg);
+  return reply.type('text/html').send(getPage(msg));
 });
 
 // Start the server
