@@ -37,7 +37,7 @@ jobs:
  #builda a imagem do docker - isso tá em SP
     - name: Build, tag, and push docker image to Amazon ECR
       env:
-        REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        REGISTRY: ${{ steps.login-ecr-sp.outputs.registry }}
         REPOSITORY: hackaton
         IMAGE_TAG: 1.1
       run: |
